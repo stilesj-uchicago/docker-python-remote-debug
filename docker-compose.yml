@@ -1,0 +1,17 @@
+# WARNING: this file is not suitable for production, please use with caution
+version: '3'
+
+services:
+  web:
+    image: remote_debug
+    build: .
+    command: flask run -h 0.0.0.0
+    env_file:
+      - ./.flaskenv
+    environment:
+      - DATABASE_URI=sqlite:////db/remote_debug.db
+    volumes:
+      - ./remote_debug:/code/remote_debug
+      - ./db/:/db/
+    ports:
+      - "5000:5000"
