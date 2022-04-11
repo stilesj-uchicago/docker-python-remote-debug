@@ -3,11 +3,9 @@ version: '3'
 
 services:
   web:
-    image: jaystile/docker-python-remote-debug:latest
+    image: ${USER}/docker-python-remote-debug:latest
     build: .
-    # command: python -m debugpy --listen 0.0.0.0:5678 --wait-for-client -m pytest -lvx tests/test_user.py
-    # command: flask run -h 0.0.0.0
-    # command: tail -f /dev/null
+    command: python -m debugpy --listen 0.0.0.0:5678 --wait-for-client -m pytest -lvx tests/test_user.py
     env_file:
       - ./.flaskenv
     environment:
