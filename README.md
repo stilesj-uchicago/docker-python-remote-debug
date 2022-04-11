@@ -24,7 +24,7 @@ docker-compose -f ./docker-compose.yml up
 docker exec -it docker-python-remote-debug-web-1 bash
 ```
 
-* start the debugger in the container
+* Override the entrypoint of the Dockerfile in docker-compose
 ```
 python -m debugpy --listen 0.0.0.0:5678 --wait-for-client -m pytest -lvx tests/test_user.py
 ```
