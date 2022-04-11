@@ -17,6 +17,9 @@ RUN pip install -r requirements.txt
 RUN pip install -e .
 
 COPY remote_debug remote_debug/
+COPY tests tests/
 COPY migrations migrations/
 
 EXPOSE 5000
+EXPOSE 5678
+ENTRYPOINT tail -f /dev/null

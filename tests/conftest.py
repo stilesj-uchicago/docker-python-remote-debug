@@ -17,7 +17,11 @@ def app():
     load_dotenv(".testenv")
     app = create_app(testing=True)
     return app
+    
 
+@pytest.fixture()
+def client(app):
+    return app.test_client()
 
 @pytest.fixture
 def db(app):

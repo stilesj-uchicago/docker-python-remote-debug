@@ -11,3 +11,6 @@ passlib
 apispec[yaml]
 apispec-webframeworks
 tox
+debugpy
+pytest
+pytest_factoryboy

@@ -10,4 +10,21 @@ cookiecutter https://github.com/karec/cookiecutter-flask-restful
 ```
 
 * Build the docker image
+```
+docker build --tag "jaystile/docker-python-remote-debug:latest" -f ./Dockerfile .
+```
 
+* Bring up the docker container
+```
+docker-compose -f ./docker-compose.yml up
+```
+
+* `exec` into the container to start the debug command
+```
+docker exec -it docker-python-remote-debug-web-1 bash
+```
+
+* star the debugger in the container
+```
+python -m debugpy --listen 0.0.0.0:5678 --wait-for-client -m pytest -lvx tests/test_user.py
+```
